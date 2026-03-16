@@ -1,2 +1,137 @@
-# containerized-flask-message-app
-A containerized message board web app built with Python Flask and MySQL. Both containers run in the same Docker network message-network, demonstrating backend development, database integration, and cloud-ready deployment.
+# Containerized Flask Message App
+
+A modern message board web application built using Python Flask and MySQL, both running in Docker containers. The application allows users to create and delete messages through a simple and clean web interface. This project demonstrates backend development, database connectivity, and containerized deployment suitable for cloud environments.
+
+---
+
+## 🚀 Features
+
+* Add new messages through the web interface
+* Delete messages instantly
+* Data stored in a MySQL database
+* Containerized architecture using Docker
+* Application and database containers connected through a shared Docker network
+
+---
+
+## 🏗️ Architecture
+
+* Flask Web Application Container
+* MySQL Database Container
+* Shared Docker Network: **message-network**
+
+The Flask application communicates with the MySQL database using the container name (`mysql-db`) within the same Docker network.
+
+---
+
+## 🛠️ Tech Stack
+
+* Python
+* Flask
+* MySQL
+* Docker
+
+---
+
+## 📂 Project Structure
+
+```
+message-app
+│
+├── app.py
+├── Dockerfile
+├── requirements.txt
+│
+├── templates
+│   └── index.html
+│
+└── static
+    └── style.css
+```
+
+---
+
+## 🗄️ Database Schema
+
+```
+CREATE TABLE messages (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    message VARCHAR(255)
+);
+```
+
+---
+
+## ⚙️ Setup and Run
+
+### 1️⃣ Create Docker Network
+
+```
+docker network create message-network
+```
+
+### 2️⃣ Run MySQL Container
+
+```
+docker run -d \
+--name mysql-db \
+--network message-network \
+-e MYSQL_ROOT_PASSWORD=root \
+-e MYSQL_DATABASE=tododb \
+mysql:8
+```
+
+### 3️⃣ Build Flask Application Image
+
+```
+docker build -t flask-message-app .
+```
+
+### 4️⃣ Run Flask Container
+
+```
+docker run -d \
+-p 5000:5000 \
+--network message-network \
+--name flask-app \
+flask-message-app
+```
+
+---
+
+## 🌐 Access Application
+
+Open in browser:
+
+```
+http://localhost:5000
+```
+
+---
+
+## 📌 Learning Objectives
+
+This project demonstrates:
+
+* Backend development using Flask
+* Database integration with MySQL
+* Containerized application architecture
+* Docker networking for service communication
+* Cloud-ready deployment practices
+
+---
+
+## 📷 Future Improvements
+
+* Add message timestamps
+* Add edit message feature
+* Improve UI with Bootstrap
+* Deploy on AWS EC2
+* Use Docker Compose
+
+---
+
+## 👨‍💻 Author
+
+Avinash Wagh
+Software Engineer | .NET | Cloud & DevOps Learner
