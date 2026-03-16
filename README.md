@@ -135,9 +135,8 @@ http://43.205.216.91:5001
 ### MySQL Database Table
 ![MySQL Table](screenshots/mysql-table.png)
 
-```
+## ⚙️ Flask Configuration
 app.run(host="0.0.0.0", port=5001)
-```
 
 This allows the application to accept external connections from the internet.
 
