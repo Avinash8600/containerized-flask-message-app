@@ -77,7 +77,7 @@ docker run -d \
 --name mysql-db \
 --network message-network \
 -e MYSQL_ROOT_PASSWORD=root \
--e MYSQL_DATABASE=tododb \
+-e MYSQL_DATABASE=messagedb \
 mysql:8
 ```
 
@@ -101,11 +101,30 @@ flask-message-app
 
 ## 🌐 Access Application
 
-Open in browser:
+The application is deployed on an AWS EC2 instance and can be accessed through the server's public IP address.
+
+Example:
 
 ```
-http://localhost:5000
+http://<EC2-PUBLIC-IP>:5001
 ```
+
+Live Example:
+
+```
+http://43.205.216.91:5001
+```
+
+Make sure that:
+
+* Port **5001** is allowed in the EC2 **Security Group**
+* The Flask application is running with:
+
+```
+app.run(host="0.0.0.0", port=5001)
+```
+
+This allows the application to accept external connections from the internet.
 
 ---
 
