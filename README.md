@@ -41,12 +41,19 @@ message-app
 ├── app.py
 ├── Dockerfile
 ├── requirements.txt
+├── README.md
 │
 ├── templates
-│   └── index.html
+│ └── index.html
 │
-└── static
-    └── style.css
+├── static
+│ └── style.css
+│
+└── screenshots
+├── app-ui.png
+├── mobile-view.png
+├── docker-containers.png
+└── mysql-table.png
 ```
 
 ---
@@ -54,7 +61,7 @@ message-app
 ## 🗄️ Database Schema
 
 ```
-CREATE TABLE messages (
+CREATE TABLE msg (
     id INT AUTO_INCREMENT PRIMARY KEY,
     message VARCHAR(255)
 );
@@ -114,11 +121,19 @@ Live Example:
 ```
 http://43.205.216.91:5001
 ```
+## 📷 Screenshots
 
-Make sure that:
+### Web Application Interface
+![Message App UI](screenshots/app-ui.png)
 
-* Port **5001** is allowed in the EC2 **Security Group**
-* The Flask application is running with:
+### Mobile View
+![Mobile View](screenshots/mobile-view.png)
+
+### Docker Containers Running
+![Docker Containers](screenshots/docker-containers.png)
+
+### MySQL Database Table
+![MySQL Table](screenshots/mysql-table.png)
 
 ```
 app.run(host="0.0.0.0", port=5001)
