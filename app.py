@@ -22,10 +22,10 @@ def index():
 
 @app.route("/add", methods=["POST"])
 def add():
-    message = request.form["msg"]
+    message = request.form["message"]
 
     cursor.execute(
-        "INSERT INTO msg (msg) VALUES (%s)",
+        "INSERT INTO msg (message) VALUES (%s)",
         (message,)
     )
     db.commit()
