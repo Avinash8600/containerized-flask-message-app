@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 # MySQL connection
 db = mysql.connector.connect(
-    host="mysql-db",
+    host="mysql",
     user="root",
     password="root",
     database="messagedb"
