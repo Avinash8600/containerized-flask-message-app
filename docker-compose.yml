@@ -3,7 +3,7 @@ version: "3"
 services:
 
   mysql:
-    image: mysql:8
+    image: avindock/mysql:8
     container_name: mysql-db-container
     environment:
       MYSQL_DATABASE: messagedb
@@ -27,8 +27,7 @@ services:
 
 
   app:
-    build:
-      context: .
+    image: avindock/message-app
     container_name: message-app-container
     ports:
       - "5001:5001"
